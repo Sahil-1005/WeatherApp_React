@@ -6,8 +6,8 @@ const Highlights = ({stats}) => {
             <div className="bg-slate-600 p-2 text-slate-200 flex flex-col justify-start items-center text-transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out cursor-pointer">
                 <h2 className="text-sm mt-2">{stats.title}</h2>
                 <div className="mt-2">
-                    <span className="text-4xl font-bond">{stats.value}</span>
-                    <span>{stats.unit}</span>
+                    <span className="text-4xl font-bold">{stats.value}</span>
+                    <span> {stats.unit}</span>
                 </div>
                 { 
                     stats.direction ?
@@ -30,6 +30,7 @@ const Highlights = ({stats}) => {
                 </div>
                 ):null
                 }
+
             </div>
         </>
     )

@@ -26,7 +26,7 @@ const Temprature = ({ setCity, stats }) => {
 
                 </div>
             </div>
-            <div className="flex justify-center mt-8 mr-8">
+            <div className="flex justify-center mt-3 mr-8">
                 {stats.isDay !== 0 ? (
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-14 h-14 text-yellow-300 text-slate-200 text-transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out cursor-pointer">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
@@ -38,16 +38,19 @@ const Temprature = ({ setCity, stats }) => {
                 )
                 }
             </div>
-            <div className="flex justify-center items-center text-slate-200 mt-8 mr-8 text-slate-200 text-transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out cursor-pointer">
+            <div className="flex justify-center items-center text-slate-200 mt-2 mr-8 text-slate-200 text-transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out cursor-pointer">
                 <p className="font-semibold text-[55px]">{stats.temp}</p><span className="text-[33px]">°C</span>
             </div>
-            <div className="flex gap-4 justify-center items-center text-slate-300 mt-8 mr-8 text-[25px] text-slate-200 text-transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out cursor-pointer">
+            <div className="flex gap-4 justify-center items-center text-slate-300 mt-1 mr-8 text-[25px] text-slate-200 text-transform scale-100 hover:scale-110 transition-transform duration-300 ease-in-out cursor-pointer">
                 {stats.condition}
                 <img src={stats.conditionIcon} className="p-2"></img>
             </div>
-            <div className="flex justify-center text-slate-400 mt-5 text-[15px] mr-8">
+            <div className="flex justify-center text-slate-400 mt-3 text-[15px] mr-8">
                 Today: {stats.time} | {stats.location} | {stats.region}
             </div>
+            {/* <div className="flex justify-center text-slate-400 mt-3 text-[15px] mr-8">
+                Today: {stats.time} | {stats.location} | {stats.region}
+            </div> */}
         </>
     )
 }
