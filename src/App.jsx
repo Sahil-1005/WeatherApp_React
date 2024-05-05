@@ -1,20 +1,19 @@
 //import { useState } from 'react'
 //https://www.weatherapi.com/my/ for weatherData
-import React from 'react';
 import Temprature from './component/Temprature'
 import Highlights from './component/Highlights'
 import { useEffect, useState } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { List } from './component/List';
 import BasicCard from './component/BasicCard';
+import Maps from './component/Maps';
 
 function App() {
   const [city, setCity] = useState("Vadodara")
   const apiUrl = `http://api.weatherapi.com/v1/current.json?key=65dec8f0b81f42bf88c180819240105&q=${city}&aqi=yes`
   const [weatherData, setweatherData] = useState(null)
-
+  const [mapData, setMapData] = useState(null);
 
   useEffect(() => {
     fetch(apiUrl)
@@ -27,6 +26,10 @@ function App() {
       .then((data) => {
         console.log(data)
         setweatherData(data)
+        setMapData({
+          lat:data.location.lat,
+          lng:data.location.lon
+        });
       })
       .catch((e) => {
         console.log(e)
@@ -49,12 +52,13 @@ function App() {
       </div>
       ),
   };
-
+  //console.log(weatherData.location.lat,Number(weatherData.location.lon ),"sahil")
   return (
     <>
       <div className='bg-[#1f213a] h-screen flex justify-center align-top'>
 
         <div className='mt-20 w-1/5 h-1/3'>
+          <div>
           {weatherData && <Temprature
             setCity={setCity}
             stats={{
@@ -67,10 +71,19 @@ function App() {
               conditionIcon: weatherData.current.condition.icon
             }}
           />}
-        </div>
+          </div>
+          <div className='mt-7'>
+          { mapData &&
+          <Maps
+            mapData={mapData}
+          />
+          }
 
+          </div>
+        </div>   
         <div className='mt-10 w-1/3 h-1/2 p-10 grid grid-cols-2 gap-6'>
-          <h2 className='text-slate-200 text-2xl col-span-2'>Today's Highlights</h2>
+          <img src='jsb.png' style={{width:"300px",height:"70px",marginLeft:"100px"}}></img>
+          <h2 className='text-slate-200 text-2xl col-span-2 mt-6'>Today's Highlights</h2>
           {weatherData &&
             (<>
               <Highlights

@@ -7,7 +7,7 @@ const Temprature = ({ setCity, stats }) => {
         const words = city.split(' ');
         city=words.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         setCity(city)
-
+        e.preventDefault();
     }
     return (
         <>
